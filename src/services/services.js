@@ -1,8 +1,9 @@
 import React from "react";
-import { axios } from "axios";
+import axios from "axios";
 
-const Practice = () => {
-  return <div>Practice</div>;
+const API = "http://localhost:3007/schedules/";
+const fetchData = () => {
+  return axios.get(API);
 };
 
-export default Practice;
+export { fetchData };
