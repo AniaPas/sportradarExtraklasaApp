@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
-import { fetchData } from "../services/services";
+//import { fetchData } from "../services/services";
 
 export const Home = () => {
   const [data, setData] = useState([]);
@@ -22,9 +22,15 @@ export const Home = () => {
   }, []);
   console.log(data);
   const getNames = data.map((item) => item.sport_event.competitors);
-  console.log(getNames);
+  //console.log(getNames);
   const names = getNames.map((item) => [item[0].name, item[1].name]).flat(1);
-  console.log(names);
+  //console.log(names);
+  const getResults = data.map((item) =>
+    item.sport_event_status.home_score || item.sport_event_status.away_score
+      ? [item.sport_event_status.home_score, item.sport_event_status.away_score]
+      : "no result"
+  );
+  console.log(getResults);
 
   return <div>Home</div>;
 };
