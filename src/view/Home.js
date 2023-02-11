@@ -23,7 +23,8 @@ export const Home = () => {
   console.log(data);
   const getNames = data.map((item) => item.sport_event.competitors);
   console.log(getNames);
-  const names = getNames.map((item) => [item[0].name, item[1].name]);
+  const names = getNames.map((item) => [item[0].name, item[1].name]).flat(1);
   console.log(names);
+
   return <div>Home</div>;
 };
