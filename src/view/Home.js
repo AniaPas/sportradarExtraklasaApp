@@ -1,10 +1,13 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
+import { TableComponent } from "../components/Table/TableComponent";
 //import { fetchData } from "../services/services";
 
 export const Home = () => {
   const [data, setData] = useState([]);
+  //const [names, setNames] = useState({})
+  //const
 
   useEffect(() => {
     const API = "http://localhost:3007/schedules/";
@@ -28,9 +31,9 @@ export const Home = () => {
   const getResults = data.map((item) =>
     item.sport_event_status.home_score || item.sport_event_status.away_score
       ? [item.sport_event_status.home_score, item.sport_event_status.away_score]
-      : "no result"
+      : ["no result", "no result"]
   );
-  console.log(getResults);
+  const results = getResults.flat(1);
 
-  return <div>Home</div>;
+  return <TableComponent names={names} results={results} />;
 };

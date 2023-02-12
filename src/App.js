@@ -1,6 +1,7 @@
 import logo from "./logo.svg";
-import "./App.css";
+import "./App.scss";
 import { Home } from "./view/Home";
+import { TableComponent } from "./components/Table/TableComponent";
 
 function App() {
   return (
@@ -8,14 +9,7 @@ function App() {
       <header className='App-header'>
         <img src={logo} className='App-logo' alt='logo' />
         <p>Hello, world, let's start!</p>
-        <a
-          className='App-link'
-          href='https://reactjs.org'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Learn React
-        </a>
+        <TableComponent />
         <Home />
       </header>
     </div>
