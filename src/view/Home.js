@@ -34,6 +34,18 @@ export const Home = () => {
       : ["no result", "no result"]
   );
   const results = getResults.flat(1);
+  const date = data.map((item) => item.sport_event.start_time.slice(0, 10));
+  // console.log(date);
+  const halfTime = data.map((item) =>
+    item.sport_event_status.period_scores
+      ? `${item.sport_event_status.period_scores[0].home_score} - ${item.sport_event_status.period_scores[0].away_score}`
+      : "no result"
+  );
+  //" " +
+  //item.sport_event_status.period_scores[0].away_score
 
-  return <Results names={names} results={results} />;
+  console.log(halfTime);
+  return (
+    <Results names={names} results={results} date={date} halfTime={halfTime} />
+  );
 };

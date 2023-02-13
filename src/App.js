@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.scss";
 import { Home } from "./view/Home";
 import { Results } from "./components/Table/Results";
