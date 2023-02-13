@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
-import { TableComponent } from "../components/Table/TableComponent";
+import { Results } from "../components/Table/Results";
 //import { fetchData } from "../services/services";
 
 export const Home = () => {
@@ -35,5 +35,5 @@ export const Home = () => {
   );
   const results = getResults.flat(1);
 
-  return <TableComponent names={names} results={results} />;
+  return <Results names={names} results={results} />;
 };
