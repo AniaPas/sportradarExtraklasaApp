@@ -41,11 +41,16 @@ export const Home = () => {
       ? `${item.sport_event_status.period_scores[0].home_score} - ${item.sport_event_status.period_scores[0].away_score}`
       : "no result"
   );
-  //" " +
-  //item.sport_event_status.period_scores[0].away_score
-
   console.log(halfTime);
+  const stadium = data.map((item) => item.sport_event.venue.name);
+  console.log(stadium);
   return (
-    <Results names={names} results={results} date={date} halfTime={halfTime} />
+    <Results
+      names={names}
+      results={results}
+      date={date}
+      halfTime={halfTime}
+      stadium={stadium}
+    />
   );
 };
