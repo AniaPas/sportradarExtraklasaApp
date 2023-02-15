@@ -27,7 +27,11 @@ export const Home = () => {
   const getNames = data.map((item) => item.sport_event.competitors);
   //console.log(getNames);
   const names = getNames.map((item) => [item[0].name, item[1].name]).flat(1);
-  //console.log(names);
+  console.log(names);
+
+  const homeNames = data.map((item) => item.sport_event.competitors[0].name);
+  console.log(homeNames);
+  const awayNames = data.map((item) => item.sport_event.competitors[1].name);
   const getResults = data.map((item) =>
     item.sport_event_status.home_score || item.sport_event_status.away_score
       ? [item.sport_event_status.home_score, item.sport_event_status.away_score]
@@ -46,11 +50,14 @@ export const Home = () => {
   console.log(stadium);
   return (
     <Results
-      names={names}
-      results={results}
+      homeNames={homeNames}
+      awayNames={awayNames}
+      homeRresults={results}
+      awayResults={awayResults}
       date={date}
       halfTime={halfTime}
       stadium={stadium}
+      data={data}
     />
   );
 };
