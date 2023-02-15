@@ -1,10 +1,76 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import axios from "axios";
-import { Results } from "../../components/Table/Results";
+import { Table } from "../../components/Table/Table";
 import styles from "./Home.module.scss";
 //import { fetchData } from "../services/services";
 
 export const Home = () => {
+  const columns = useMemo(
+    () => [
+      {
+        // first group - TV Show
+        Header: "Teams",
+        // First group columns
+        columns: [
+          {
+            Header: "Home team",
+            accessor: "sport_event.competitors[0].name",
+          },
+          {
+            Header: "Away team",
+            accessor: "sport_event.competitors[1].name",
+          },
+        ],
+      },
+      {
+        // first group - TV Show
+        Header: "Results",
+        // First group columns
+        columns: [
+          {
+            Header: "Home score",
+            accessor: "sport_event_status.home_score",
+          },
+          {
+            Header: "Away score",
+            accessor: "sport_event_status.away_score",
+          },
+        ],
+      },
+      {
+        // first group - TV Show
+        Header: "Half time",
+        // First group columns
+        columns: [
+          {
+            Header: "Home score",
+            accessor: "sport_event_status.period_scores[0].home_score",
+          },
+          {
+            Header: "Away score",
+            accessor: "sport_event_status.period_scores[0].away_score",
+          },
+        ],
+      },
+      {
+        // first group - TV Show
+        Header: "Details",
+        // First group columns
+        columns: [
+          {
+            Header: "Date",
+            accessor: "sport_event.start_time",
+          },
+          {
+            Header: "Stadium",
+            accessor: "sport_event.venue.name",
+          },
+        ],
+      },
+    ],
+    []
+  );
+
   const [data, setData] = useState([]);
   //const [names, setNames] = useState({})
   //const
@@ -24,79 +90,10 @@ export const Home = () => {
       });
   }, []);
   console.log(data);
-  const getNames = data.map((item) => item.sport_event.competitors);
-  //console.log(getNames);
-  const names = getNames.map((item) => [item[0].name, item[1].name]).flat(1);
-  const homeNames = getNames.map((item) => item[0].name);
-  const awayNames = getNames.map((item) => item[1].name);
-  //console.log(homeNames);
-  const getResults = data.map((item) =>
-    item.sport_event_status.home_score || item.sport_event_status.away_score
-      ? [item.sport_event_status.home_score, item.sport_event_status.away_score]
-      : ["no result", "no result"]
-  );
-  console.log(getResults);
-  const results = getResults.flat(1);
-  const awayResults = data.map((item) =>
-    item.sport_event_status.away_score || item.sport_event_status.home_score
-      ? item.sport_event_status.away_score
-      : "no result"
-  );
-  //console.log(awayResults);
-  const homeResults = data.map((item) =>
-    item.sport_event_status.away_score || item.sport_event_status.home_score
-      ? item.sport_event_status.home_score
-      : "no result"
-  );
-  //console.log(homeResults);
-  const date = data.map((item) => item.sport_event.start_time.slice(0, 10));
-  // console.log(date);
-  const halfTime = data.map((item) =>
-    item.sport_event_status.period_scores
-      ? `${item.sport_event_status.period_scores[0].home_score} - ${item.sport_event_status.period_scores[0].away_score}`
-      : "no result"
-  );
-  const stadium = data.map((item) => item.sport_event.venue.name);
-  //console.log(stadium);
-  // let cellColor = "";
-  // const createCellColor = homeNames.map((item, index) => {
-  //   if (item > awayResults[index]) {
-  //     return (cellColor = "blue");
-  //   }
-  // });
 
-  // const createColor = () =>
-  //   data.map((item) => {
-  //     if (
-  //       item.sport_event.competitors[0].id === item.sport_event_status.winner_id
-  //     ) {
-  //       console.log("green");
-  //       return "green";
-  //     } else {
-  //       if (item.sport_event_status.match_tie === true) {
-  //         console.log("orange");
-  //         return "orange";
-  //       } else {
-  //         console.log("red");
-  //         return "red";
-  //       }
-  //     }
-  //   });
-
-  // createColor();
-  // //console.log(createCellColor);
   return (
-    <Results
-      names={names}
-      results={results}
-      date={date}
-      halfTime={halfTime}
-      stadium={stadium}
-      homeNames={homeNames}
-      awayNames={awayNames}
-      homeResults={homeResults}
-      awayResults={awayResults}
-      createColors={createColor}
-    />
+    <div>
+      <Table columns={columns} data={data} />
+    </div>
   );
 };

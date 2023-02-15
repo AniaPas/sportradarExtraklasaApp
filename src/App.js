@@ -1,6 +1,5 @@
 import "./App.scss";
-import { Home } from "./view/Home";
-import { Results } from "./components/Table/Results";
+import { Home } from "./view/Home/Home";
 
 function App() {
   return (
