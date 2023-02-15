@@ -32,12 +32,17 @@ export const Home = () => {
   const homeNames = data.map((item) => item.sport_event.competitors[0].name);
   console.log(homeNames);
   const awayNames = data.map((item) => item.sport_event.competitors[1].name);
-  const getResults = data.map((item) =>
+  const homeResults = data.map((item) =>
     item.sport_event_status.home_score || item.sport_event_status.away_score
       ? [item.sport_event_status.home_score, item.sport_event_status.away_score]
       : ["no result", "no result"]
   );
-  const results = getResults.flat(1);
+  const awayResults = data.map((item) =>
+    item.sport_event_status.away_score || item.sport_event_status.home_score
+      ? item.sport_event_status.away_score
+      : "no result"
+  );
+
   const date = data.map((item) => item.sport_event.start_time.slice(0, 10));
   // console.log(date);
   const halfTime = data.map((item) =>
@@ -52,7 +57,7 @@ export const Home = () => {
     <Results
       homeNames={homeNames}
       awayNames={awayNames}
-      homeRresults={results}
+      homeRresults={homeResults}
       awayResults={awayResults}
       date={date}
       halfTime={halfTime}
