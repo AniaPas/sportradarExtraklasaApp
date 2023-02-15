@@ -65,26 +65,26 @@ export const Home = () => {
   //   }
   // });
 
-  const createColor = () =>
-    data.map((item) => {
-      if (
-        item.sport_event.competitors[0].id === item.sport_event_status.winner_id
-      ) {
-        console.log("green");
-        return "green";
-      } else {
-        if (item.sport_event_status.match_tie === true) {
-          console.log("orange");
-          return "orange";
-        } else {
-          console.log("red");
-          return "red";
-        }
-      }
-    });
+  // const createColor = () =>
+  //   data.map((item) => {
+  //     if (
+  //       item.sport_event.competitors[0].id === item.sport_event_status.winner_id
+  //     ) {
+  //       console.log("green");
+  //       return "green";
+  //     } else {
+  //       if (item.sport_event_status.match_tie === true) {
+  //         console.log("orange");
+  //         return "orange";
+  //       } else {
+  //         console.log("red");
+  //         return "red";
+  //       }
+  //     }
+  //   });
 
-  createColor();
-  //console.log(createCellColor);
+  // createColor();
+  // //console.log(createCellColor);
   return (
     <Results
       names={names}
