@@ -29,7 +29,7 @@ export const Home = () => {
   const names = getNames.map((item) => [item[0].name, item[1].name]).flat(1);
   const homeNames = getNames.map((item) => item[0].name);
   const awayNames = getNames.map((item) => item[1].name);
-  //console.log(homeNames);
+  console.log(homeNames);
   const getResults = data.map((item) =>
     item.sport_event_status.home_score || item.sport_event_status.away_score
       ? [item.sport_event_status.home_score, item.sport_event_status.away_score]
