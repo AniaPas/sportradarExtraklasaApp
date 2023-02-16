@@ -1,6 +1,5 @@
 import Table from "react-bootstrap/Table";
-import { Home } from "../../view/Home";
-import { useState } from "react";
+import uniqid from "uniqid";
 
 export const Results = ({
   homeNames,
@@ -22,41 +21,31 @@ export const Results = ({
   ];
 
   const createThElement = (...thElements) =>
-    thElements.map((item, index) => <th>{item}</th>);
+    thElements.map((item, index) => <th key={uniqid()}>{item}</th>);
 
   const r = homeResults?.map((col, index) => {
     const x = Elements?.map((row) => row[index]);
     return x;
   });
   console.log(r);
-  // const dumbArr1 = [1, 2, 3, 4, 5];
-  // const dumbArr2 = [1, 2, 5, 9, 4];
-  const ccellColor = awayResults.map((item, index) => {
-    if (item > homeResults[index]) {
-      return "green";
-    } else if (item === homeResults[index]) {
-      return "orange";
-    } else {
-      return "red";
-    }
-  });
-  console.log(compare);
-
-  // })
-  // console.log(r[])
-  // const getwinner = homeResults.map((item, i) => {
-  //   if (item >= awayResults[i]) {
-  //     return "winner";
-  //   } else {
-  //     return "loser";
-  //   }
-  // });
-  console.log(typeof homeResults[2]);
-  // console.log(getwinner);
-  const fillBody = r?.map((e) => (
-    <tr>
-      <td style={{ backgroundColor: "orange" }}>{e[0]}</td>
-      <td>{e[1]}</td>
+  const cellColor = (array1, array2) =>
+    array1.map((item, index) => {
+      if (item > array2[index]) {
+        return "green";
+      } else if (item === array2[index]) {
+        return "orange";
+      } else {
+        return "red";
+      }
+    });
+  const fillBody = r?.map((e, i) => (
+    <tr key={uniqid()}>
+      <td style={{ backgroundColor: cellColor(homeResults, awayResults)[i] }}>
+        {e[0]}
+      </td>
+      <td style={{ backgroundColor: cellColor(awayResults, homeResults)[i] }}>
+        {e[1]}
+      </td>
       <td>{e[2]}</td>
       <td>{e[3]}</td>
       <td>{e[4]}</td>

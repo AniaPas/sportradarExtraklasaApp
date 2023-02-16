@@ -44,7 +44,7 @@ export const Home = () => {
   );
   const awayResults = data.map((item) =>
     item.sport_event_status.away_score >= 0
-      ? item.sport_event_status.home_score
+      ? item.sport_event_status.away_score
       : "no result"
   );
   const halfTime = data.map((item) =>
