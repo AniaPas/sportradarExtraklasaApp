@@ -29,7 +29,30 @@ export const Results = ({
     return x;
   });
   console.log(r);
+  // const dumbArr1 = [1, 2, 3, 4, 5];
+  // const dumbArr2 = [1, 2, 5, 9, 4];
+  const ccellColor = awayResults.map((item, index) => {
+    if (item > homeResults[index]) {
+      return "green";
+    } else if (item === homeResults[index]) {
+      return "orange";
+    } else {
+      return "red";
+    }
+  });
+  console.log(compare);
 
+  // })
+  // console.log(r[])
+  // const getwinner = homeResults.map((item, i) => {
+  //   if (item >= awayResults[i]) {
+  //     return "winner";
+  //   } else {
+  //     return "loser";
+  //   }
+  // });
+  console.log(typeof homeResults[2]);
+  // console.log(getwinner);
   const fillBody = r?.map((e) => (
     <tr>
       <td style={{ backgroundColor: "orange" }}>{e[0]}</td>
