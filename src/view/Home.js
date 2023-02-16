@@ -24,45 +24,49 @@ export const Home = () => {
       });
   }, []);
   console.log(data);
-  const getNames = data.map((item) => item.sport_event.competitors);
+  //const getNames = data.map((item) => item.sport_event.competitors);
   //console.log(getNames);
-  const names = getNames.map((item) => [item[0].name, item[1].name]).flat(1);
-  console.log(names);
-
+  //const names = getNames.map((item) => [item[0].name, item[1].name]).flat(1);
+  //console.log(names);
   const homeNames = data.map((item) => item.sport_event.competitors[0].name);
-  console.log(homeNames);
   const awayNames = data.map((item) => item.sport_event.competitors[1].name);
+  // console.log(homeNames);
+  // const getResults = data.map((item) =>
+  //   item.sport_event_status.home_score || item.sport_event_status.away_score
+  //     ? [item.sport_event_status.home_score, item.sport_event_status.away_score]
+  //     : ["no result", "no result"]
+  // );
+  // const results = getResults.flat(1);
   const homeResults = data.map((item) =>
-    item.sport_event_status.home_score || item.sport_event_status.away_score
-      ? [item.sport_event_status.home_score, item.sport_event_status.away_score]
-      : ["no result", "no result"]
-  );
-  const awayResults = data.map((item) =>
-    item.sport_event_status.away_score || item.sport_event_status.home_score
-      ? item.sport_event_status.away_score
+    item.sport_event_status.home_score >= 0
+      ? item.sport_event_status.home_score
       : "no result"
   );
-
-  const date = data.map((item) => item.sport_event.start_time.slice(0, 10));
-  // console.log(date);
+  const awayResults = data.map((item) =>
+    item.sport_event_status.away_score >= 0
+      ? item.sport_event_status.home_score
+      : "no result"
+  );
   const halfTime = data.map((item) =>
     item.sport_event_status.period_scores
       ? `${item.sport_event_status.period_scores[0].home_score} - ${item.sport_event_status.period_scores[0].away_score}`
       : "no result"
   );
   console.log(halfTime);
+  const date = data.map((item) => item.sport_event.start_time.slice(0, 10));
   const stadium = data.map((item) => item.sport_event.venue.name);
-  console.log(stadium);
+
+  //console.log(results);
+  //console.log(homeResults);
   return (
     <Results
       homeNames={homeNames}
-      awayNames={awayNames}
-      homeRresults={homeResults}
+      homeResults={homeResults}
       awayResults={awayResults}
-      date={date}
+      awayNames={awayNames}
       halfTime={halfTime}
+      date={date}
       stadium={stadium}
-      data={data}
     />
   );
 };
