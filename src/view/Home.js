@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
 import { Results } from "../components/Table/Results";
+import { DropdownMenu } from "../components/DropdownMenu/DropdownMenu";
 //import { fetchData } from "../services/services";
 
 export const Home = () => {
@@ -25,8 +26,8 @@ export const Home = () => {
       });
   }, [api]);
   console.log(data);
-  const clickHandler = () => {
-    setApi("http://localhost:3007/schedules21_22/");
+  const clickHandler = (someApi) => {
+    setApi(someApi);
   };
   //const getNames = data.map((item) => item.sport_event.competitors);
   //console.log(getNames);
@@ -64,7 +65,7 @@ export const Home = () => {
   //console.log(homeResults);
   return (
     <div>
-      <button onClick={clickHandler}>BUTTON</button>
+      <DropdownMenu clickHandler={clickHandler} />
       <Results
         homeNames={homeNames}
         homeResults={homeResults}
