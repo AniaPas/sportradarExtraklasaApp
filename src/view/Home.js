@@ -6,14 +6,15 @@ import { Results } from "../components/Table/Results";
 
 export const Home = () => {
   const [data, setData] = useState([]);
+  const [api, setApi] = useState("http://localhost:3007/schedules/");
   //const [names, setNames] = useState({})
   //const
 
   useEffect(() => {
-    const API = "http://localhost:3007/schedules/";
+    //const API = "http://localhost:3007/schedules/";
 
     axios
-      .get(API)
+      .get(api)
       .then((response) => {
         const responseItems = response.data;
         console.log(responseItems);
@@ -22,8 +23,11 @@ export const Home = () => {
       .catch((e) => {
         console.error(e);
       });
-  }, []);
+  }, [api]);
   console.log(data);
+  const clickHandler = () => {
+    setApi("http://localhost:3007/schedules21_22/");
+  };
   //const getNames = data.map((item) => item.sport_event.competitors);
   //console.log(getNames);
   //const names = getNames.map((item) => [item[0].name, item[1].name]).flat(1);
@@ -59,14 +63,17 @@ export const Home = () => {
   //console.log(results);
   //console.log(homeResults);
   return (
-    <Results
-      homeNames={homeNames}
-      homeResults={homeResults}
-      awayResults={awayResults}
-      awayNames={awayNames}
-      halfTime={halfTime}
-      date={date}
-      stadium={stadium}
-    />
+    <div>
+      <button onClick={clickHandler}>BUTTON</button>
+      <Results
+        homeNames={homeNames}
+        homeResults={homeResults}
+        awayResults={awayResults}
+        awayNames={awayNames}
+        halfTime={halfTime}
+        date={date}
+        stadium={stadium}
+      />
+    </div>
   );
 };
