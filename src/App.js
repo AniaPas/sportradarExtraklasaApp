@@ -1,6 +1,6 @@
 import "./App.scss";
 import { Home } from "./view/Home";
-import { Results } from "./components/Table/Results";
+import { Test } from "./view/Test";
 
 function App() {
   return (
@@ -9,6 +9,7 @@ function App() {
         <h1 className='title'>EKSTRAKLASA MATCH RESULTS</h1>
 
         <Home />
+        <Test />
       </header>
     </div>
   );

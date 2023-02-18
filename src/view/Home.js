@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
-import { Results } from "../components/Table/Results";
-import { DropdownMenu } from "../components/DropdownMenu/DropdownMenu";
+import { ResultTable } from "../components/ResultTable/ResultTable";
+//import { DropdownMenu } from "../components/DropdownMenu/DropdownMenu";
+import { Navigation } from "../components/Navigation/Navigation";
 //import { fetchData } from "../services/services";
 
 export const Home = () => {
@@ -65,8 +66,9 @@ export const Home = () => {
   //console.log(homeResults);
   return (
     <div>
-      <DropdownMenu clickHandler={clickHandler} />
-      <Results
+      <Navigation clickHandler={clickHandler} />
+      {/* <DropdownMenu clickHandler={clickHandler} /> */}
+      <ResultTable
         homeNames={homeNames}
         homeResults={homeResults}
         awayResults={awayResults}

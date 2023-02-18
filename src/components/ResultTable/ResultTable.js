@@ -1,7 +1,7 @@
 import Table from "react-bootstrap/Table";
 import uniqid from "uniqid";
 
-export const Results = ({
+export const ResultTable = ({
   homeNames,
   awayNames,
   homeResults,
