@@ -2,13 +2,13 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
 import { ResultTable } from "../components/ResultTable/ResultTable";
-//import { DropdownMenu } from "../components/DropdownMenu/DropdownMenu";
+import { DropdownMenu } from "../components/DropdownMenu/DropdownMenu";
 import { Navigation } from "../components/Navigation/Navigation";
 //import { fetchData } from "../services/services";
 
 export const Home = () => {
   const [data, setData] = useState([]);
-  const [api, setApi] = useState("http://localhost:3007/schedules/");
+  const [api, setApi] = useState;
   //const [names, setNames] = useState({})
   //const
 
@@ -66,8 +66,8 @@ export const Home = () => {
   //console.log(homeResults);
   return (
     <div>
-      <Navigation clickHandler={clickHandler} />
-      {/* <DropdownMenu clickHandler={clickHandler} /> */}
+      {/* <Navigation clickHandler={clickHandler} /> */}
+      <DropdownMenu clickHandler={clickHandler} />
       <ResultTable
         homeNames={homeNames}
         homeResults={homeResults}

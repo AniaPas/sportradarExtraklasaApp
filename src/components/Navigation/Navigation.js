@@ -7,7 +7,7 @@ export const Navigation = ({ clickHandler }) => {
   return (
     <Navbar variant='dark' bg='dark' expand='lg' sticky='top'>
       <Container fluid>
-        <Navbar.Brand href='#home'>Extraxlasa Sportradar App</Navbar.Brand>
+        <Navbar.Brand href='#home'>Ekstrakqlasa Sportradar App</Navbar.Brand>
         <Navbar.Toggle aria-controls='navbar-dark-example' />
         <Navbar.Collapse id='navbar-dark-example'>
           <Nav>
