@@ -1,6 +1,5 @@
 import { GlobalStore } from "./Store/GlobalStore";
-import { Home } from "./view/Home";
-import { Test } from "./view/Test";
+import { Home } from "./view/Home/Home";
 import { Navigation } from "./components/Navigation/Navigation";
 import styles from "./App.module.scss";
 

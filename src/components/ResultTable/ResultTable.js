@@ -23,11 +23,11 @@ export const ResultTable = ({
   const createThElement = (...thElements) =>
     thElements.map((item, index) => <th key={uniqid()}>{item}</th>);
 
-  const r = homeResults?.map((col, index) => {
-    const x = Elements?.map((row) => row[index]);
-    return x;
+  const column = homeResults?.map((col, index) => {
+    const row = Elements?.map((row) => row[index]);
+    return row;
   });
-  console.log(r);
+  //console.log(r);
   const cellColor = (array1, array2) =>
     array1.map((item, index) => {
       if (item > array2[index]) {
@@ -38,7 +38,7 @@ export const ResultTable = ({
         return "red";
       }
     });
-  const fillBody = r?.map((e, i) => (
+  const fillBody = column?.map((e, i) => (
     <tr key={uniqid()}>
       <td style={{ backgroundColor: cellColor(homeResults, awayResults)[i] }}>
         {e[0]}
@@ -53,7 +53,7 @@ export const ResultTable = ({
       <td>{e[6]}</td>
     </tr>
   ));
-  console.log(fillBody);
+  //console.log(fillBody);
   return (
     <Table striped bordered hover size='sm' className={styles.resultTable}>
       <thead>

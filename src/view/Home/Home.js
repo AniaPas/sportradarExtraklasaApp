@@ -1,8 +1,8 @@
 import React, { useEffect, useContext } from "react";
-import { GlobalState } from "../Store/GlobalStore";
+import { GlobalState } from "../../Store/GlobalStore";
 import axios from "axios";
 import { useState } from "react";
-import { ResultTable } from "../components/ResultTable/ResultTable";
+import { ResultTable } from "../../components/ResultTable/ResultTable";
 
 export const Home = () => {
   const global = useContext(GlobalState);
@@ -66,7 +66,7 @@ export const Home = () => {
       ? `${item.sport_event_status.period_scores[0].home_score} - ${item.sport_event_status.period_scores[0].away_score}`
       : "no result"
   );
-  console.log(halfTime);
+  // console.log(halfTime);
   const date = data.map((item) => item.sport_event.start_time.slice(0, 10));
   const stadium = data.map((item) => item.sport_event.venue.name);
 
