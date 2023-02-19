@@ -5,6 +5,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { GlobalState } from "../../Store/GlobalStore";
 import { useContext } from "react";
 import styles from "./Navigation.module.scss";
+import { Link } from "react-router-dom";
 
 export const Navigation = () => {
   const global = useContext(GlobalState);
@@ -17,7 +18,9 @@ export const Navigation = () => {
       className={styles.wrapper}
     >
       <Container fluid>
-        <Navbar.Brand href='#home'>Ekstrakqlasa Sportradar App</Navbar.Brand>
+        <Navbar.Brand>
+          <Link to='/'>Ekstrakqlasa Sportradar App</Link>
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls='navbar-dark-example' />
         <Navbar.Collapse id='navbar-dark-example'>
           <Nav>
@@ -52,7 +55,8 @@ export const Navigation = () => {
                 2022/2023
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href='#action/3.4'>
+              <NavDropdown.Item>
+                <Link to='/matchtimeline'>Details</Link>
                 Separated link
               </NavDropdown.Item>
             </NavDropdown>
