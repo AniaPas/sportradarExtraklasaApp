@@ -1,7 +1,9 @@
 import Dropdown from "react-bootstrap/Dropdown";
-import DropdownButton from "react-bootstrap/DropdownButton";
+import { GlobalState } from "../../Store/GlobalStore";
+import { useContext } from "react";
 
 export const DropdownMenu = ({ clickHandler }) => {
+  const global = useContext(GlobalState);
   return (
     <>
       <Dropdown>
@@ -12,7 +14,9 @@ export const DropdownMenu = ({ clickHandler }) => {
         <Dropdown.Menu variant='dark'>
           <Dropdown.Item
             as='button'
-            onClick={() => clickHandler("http://localhost:3007/schedules/")}
+            onClick={() =>
+              global.globalClickHandler("http://localhost:3007/schedules/")
+            }
             active
           >
             20/21
@@ -20,7 +24,7 @@ export const DropdownMenu = ({ clickHandler }) => {
           <Dropdown.Item
             as='button'
             onClick={() =>
-              clickHandler("http://localhost:3007/schedules21_22/")
+              global.globalClickHandler("http://localhost:3007/schedules21_22/")
             }
           >
             21/22
@@ -28,7 +32,7 @@ export const DropdownMenu = ({ clickHandler }) => {
           <Dropdown.Item
             as='button'
             onClick={() =>
-              clickHandler("http://localhost:3007/schedules22_23/")
+              global.globalClickHandler("http://localhost:3007/schedules22_23/")
             }
           >
             22/23

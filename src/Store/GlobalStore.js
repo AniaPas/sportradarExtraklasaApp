@@ -11,16 +11,16 @@ export const GlobalState = createContext({
 export const GlobalStore = (props) => {
   // const [data, setData] = useState([]);
   const [api, setApi] = useState("http://localhost:3007/schedules/");
-  const fetchData = () => {
-    setData(data);
-  };
+  // const fetchData = () => {
+  //   setData(data);
+  // };
   const clickHandler = (api) => {
     setApi(api);
   };
   const providerValue = {
-    globalData: data,
+    // globalData: data,
     globalApi: api,
-    globalGetData: fetchData,
+    // globalGetData: fetchData,
     globalClickHandler: clickHandler,
   };
   return (

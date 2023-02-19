@@ -1,8 +1,6 @@
 import Table from "react-bootstrap/Table";
 import uniqid from "uniqid";
-import React, { useContext } from "react";
-import { GlobalState } from "../Store/GlobalStore";
-
+import styles from "./ResultTable.module.scss";
 export const ResultTable = ({
   homeNames,
   awayNames,
@@ -57,7 +55,7 @@ export const ResultTable = ({
   ));
   console.log(fillBody);
   return (
-    <Table striped bordered hover size='sm'>
+    <Table striped bordered hover size='sm' className={styles.resultTable}>
       <thead>
         <tr>
           {createThElement(

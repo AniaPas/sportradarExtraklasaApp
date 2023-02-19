@@ -1,18 +1,22 @@
-import "./App.scss";
+import { GlobalStore } from "./Store/GlobalStore";
 import { Home } from "./view/Home";
 import { Test } from "./view/Test";
 import { Navigation } from "./components/Navigation/Navigation";
+import styles from "./App.module.scss";
+
+import { useContext } from "react";
 
 function App() {
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <h1 className='title'>EKSTRAKLASA MATCH RESULTS</h1>
-
-        <Home />
-        <Test />
-      </header>
-    </div>
+    <GlobalStore>
+      <div className={styles.App}>
+        <header className={styles.AppHeader}>
+          <h1 className={styles.title}>EKSTRAKLASA MATCH RESULTS</h1>
+          <Navigation />
+          <Home />
+        </header>
+      </div>
+    </GlobalStore>
   );
 }
 

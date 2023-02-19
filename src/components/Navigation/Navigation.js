@@ -2,10 +2,20 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import { GlobalState } from "../../Store/GlobalStore";
+import { useContext } from "react";
+import styles from "./Navigation.module.scss";
 
-export const Navigation = ({ clickHandler }) => {
+export const Navigation = () => {
+  const global = useContext(GlobalState);
   return (
-    <Navbar variant='dark' bg='dark' expand='lg' sticky='top'>
+    <Navbar
+      variant='dark'
+      bg='dark'
+      expand='lg'
+      sticky='top'
+      className={styles.wrapper}
+    >
       <Container fluid>
         <Navbar.Brand href='#home'>Ekstrakqlasa Sportradar App</Navbar.Brand>
         <Navbar.Toggle aria-controls='navbar-dark-example' />
@@ -17,20 +27,26 @@ export const Navigation = ({ clickHandler }) => {
               menuVariant='dark'
             >
               <NavDropdown.Item
-                onClick={() => clickHandler("http://localhost:3007/schedules/")}
+                onClick={() =>
+                  global.globalClickHandler("http://localhost:3007/schedules/")
+                }
               >
                 2020/2021
               </NavDropdown.Item>
               <NavDropdown.Item
                 onClick={() =>
-                  clickHandler("http://localhost:3007/schedules21_22/")
+                  global.globalClickHandler(
+                    "http://localhost:3007/schedules21_22/"
+                  )
                 }
               >
                 2021/2022
               </NavDropdown.Item>
               <NavDropdown.Item
                 onClick={() =>
-                  clickHandler("http://localhost:3007/schedules22_23/")
+                  global.globalClickHandler(
+                    "http://localhost:3007/schedules22_23/"
+                  )
                 }
               >
                 2022/2023
