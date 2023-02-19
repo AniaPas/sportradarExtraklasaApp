@@ -6,9 +6,11 @@ import { GlobalState } from "../../Store/GlobalStore";
 import { useContext } from "react";
 import styles from "./Navigation.module.scss";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const Navigation = () => {
   const global = useContext(GlobalState);
+  const navigate = useNavigate();
   return (
     <Navbar
       variant='dark'
@@ -19,46 +21,25 @@ export const Navigation = () => {
     >
       <Container fluid>
         <Navbar.Brand>
-          <Link to='/'>Ekstrakqlasa Sportradar App</Link>
+          <Link to='/'>Ekstraklasa Sportradar App</Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls='navbar-dark-example' />
         <Navbar.Collapse id='navbar-dark-example'>
           <Nav>
             <NavDropdown
               id='nav-dropdown-dark-example'
-              title='Choose the season'
+              title='Ready? Go!'
               menuVariant='dark'
             >
-              <NavDropdown.Item
-                onClick={() =>
-                  global.globalClickHandler("http://localhost:3007/schedules/")
-                }
-              >
-                2020/2021
-              </NavDropdown.Item>
-              <NavDropdown.Item
-                onClick={() =>
-                  global.globalClickHandler(
-                    "http://localhost:3007/schedules21_22/"
-                  )
-                }
-              >
-                2021/2022
-              </NavDropdown.Item>
-              <NavDropdown.Item
-                onClick={() =>
-                  global.globalClickHandler(
-                    "http://localhost:3007/schedules22_23/"
-                  )
-                }
-              >
-                2022/2023
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
               <NavDropdown.Item>
-                <Link to='/matchtimeline'>Details</Link>
-                Separated link
+                <Link to='/'>Results table</Link>
               </NavDropdown.Item>
+              <NavDropdown.Item>
+                <Link to='/matchtimeline'>Match timeline</Link>
+              </NavDropdown.Item>
+              <NavDropdown.Item></NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item>Separated link</NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

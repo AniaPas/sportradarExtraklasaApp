@@ -3,6 +3,7 @@ import { GlobalState } from "../../Store/GlobalStore";
 import axios from "axios";
 import { useState } from "react";
 import { ResultTable } from "../../components/ResultTable/ResultTable";
+import { DropdownMenu } from "../../components/DropdownMenu/DropdownMenu";
 
 export const Home = () => {
   const global = useContext(GlobalState);
@@ -75,7 +76,7 @@ export const Home = () => {
   return (
     <div>
       {/* <Navigation clickHandler={clickHandler} /> */}
-      {/* <DropdownMenu clickHandler={clickHandler} /> */}
+      <DropdownMenu />
       <ResultTable
         homeNames={homeNames}
         homeResults={homeResults}
