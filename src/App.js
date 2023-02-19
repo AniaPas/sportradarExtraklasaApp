@@ -1,6 +1,7 @@
 import "./App.scss";
 import { Home } from "./view/Home";
 import { Test } from "./view/Test";
+import { Navigation } from "./components/Navigation/Navigation";
 
 function App() {
   return (

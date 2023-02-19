@@ -5,8 +5,27 @@ export const GlobalState = createContext({
   globalApi: "http://localhost:3007/schedules/",
   globalGetData: () => {},
   globalGetTimelime: () => {},
+  globalClickHandler: () => {},
 });
 
 export const GlobalStore = () => {
-  return <div>GlobalStore</div>;
+  const [data, setData] = useState([]);
+  const [api, setApi] = useState("http://localhost:3007/schedules/");
+  const fetchData = () => {
+    setData(data);
+  };
+  const clickHandler = (someApi) => {
+    setApi(someApi);
+  };
+  const providerValue = {
+    globalData: data,
+    globalApi: api,
+    globalGetData: fetchData,
+    globalClickHandler: clickHandler,
+  };
+  return (
+    <GlobalState.Provider value={providerValue}>
+      {props.children}
+    </GlobalState.Provider>
+  );
 };

@@ -8,7 +8,7 @@ import { Navigation } from "../components/Navigation/Navigation";
 
 export const Home = () => {
   const [data, setData] = useState([]);
-  const [api, setApi] = useState;
+  const [api, setApi] = useState("http://localhost:3007/schedules/");
   //const [names, setNames] = useState({})
   //const
 
