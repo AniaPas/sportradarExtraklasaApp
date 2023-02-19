@@ -1,21 +1,21 @@
 import { useState, createContext } from "react";
 export const GlobalState = createContext({
-  globalData: [],
-  globalTimeline: [],
+  // globalData: [],
+  // globalTimeline: [],
   globalApi: "http://localhost:3007/schedules/",
-  globalGetData: () => {},
-  globalGetTimelime: () => {},
+  // globalGetData: () => {},
+  // globalGetTimelime: () => {},
   globalClickHandler: () => {},
 });
 
-export const GlobalStore = () => {
-  const [data, setData] = useState([]);
+export const GlobalStore = (props) => {
+  // const [data, setData] = useState([]);
   const [api, setApi] = useState("http://localhost:3007/schedules/");
   const fetchData = () => {
     setData(data);
   };
-  const clickHandler = (someApi) => {
-    setApi(someApi);
+  const clickHandler = (api) => {
+    setApi(api);
   };
   const providerValue = {
     globalData: data,

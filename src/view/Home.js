@@ -1,14 +1,22 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
+import { GlobalState } from "../Store/GlobalStore";
 import axios from "axios";
 import { useState } from "react";
 import { ResultTable } from "../components/ResultTable/ResultTable";
-import { DropdownMenu } from "../components/DropdownMenu/DropdownMenu";
-import { Navigation } from "../components/Navigation/Navigation";
-//import { fetchData } from "../services/services";
 
 export const Home = () => {
+  const global = useContext(GlobalState);
+  // const getResults = async () => {
+  //   try {
+  //     const data = await  fetchData();
+  //     await global.globalGetData(data.data);
+  //   } catch {
+
+  //   }
+  // };
+
   const [data, setData] = useState([]);
-  const [api, setApi] = useState("http://localhost:3007/schedules/");
+  // const [api, setApi] = useState("http://localhost:3007/schedules/");
   //const [names, setNames] = useState({})
   //const
 
@@ -16,7 +24,7 @@ export const Home = () => {
     //const API = "http://localhost:3007/schedules/";
 
     axios
-      .get(api)
+      .get(global.globalApi)
       .then((response) => {
         const responseItems = response.data;
         console.log(responseItems);
@@ -25,11 +33,11 @@ export const Home = () => {
       .catch((e) => {
         console.error(e);
       });
-  }, [api]);
+  }, [global.globalApi]);
   console.log(data);
-  const clickHandler = (someApi) => {
-    setApi(someApi);
-  };
+  // const clickHandler = (someApi) => {
+  //   setApi(someApi);
+  // };
   //const getNames = data.map((item) => item.sport_event.competitors);
   //console.log(getNames);
   //const names = getNames.map((item) => [item[0].name, item[1].name]).flat(1);
@@ -67,7 +75,7 @@ export const Home = () => {
   return (
     <div>
       {/* <Navigation clickHandler={clickHandler} /> */}
-      <DropdownMenu clickHandler={clickHandler} />
+      {/* <DropdownMenu clickHandler={clickHandler} /> */}
       <ResultTable
         homeNames={homeNames}
         homeResults={homeResults}

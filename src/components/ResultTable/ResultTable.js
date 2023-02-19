@@ -1,5 +1,7 @@
 import Table from "react-bootstrap/Table";
 import uniqid from "uniqid";
+import React, { useContext } from "react";
+import { GlobalState } from "../Store/GlobalStore";
 
 export const ResultTable = ({
   homeNames,
