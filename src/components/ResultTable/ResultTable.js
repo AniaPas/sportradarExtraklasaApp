@@ -68,9 +68,8 @@ export const ResultTable = ({
     <div className={styles.tableContainer}>
       <Table
         responsive
-        bordered
         hover
-        //variant='dark'
+        borderless
         size='sm'
         className={styles.resultTable}
       >

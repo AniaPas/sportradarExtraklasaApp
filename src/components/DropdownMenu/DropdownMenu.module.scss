@@ -1,0 +1,6 @@
+@import "./../../variables/_variables.scss";
+.dropdown {
+  display: flex;
+  justify-content: end;
+  margin: $margin1 0;
+}

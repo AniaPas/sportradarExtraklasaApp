@@ -1,24 +1,18 @@
+//Context
+import { GlobalState } from "../../Store/GlobalStore";
+import { useContext } from "react";
+//Router
+import { Link } from "react-router-dom";
+//Style
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { GlobalState } from "../../Store/GlobalStore";
-import { useContext } from "react";
 import styles from "./Navigation.module.scss";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-
 export const Navigation = () => {
   const global = useContext(GlobalState);
-  const navigate = useNavigate();
   return (
-    <Navbar
-      variant='dark'
-      bg='dark'
-      expand='lg'
-      sticky='top'
-      className={styles.wrapper}
-    >
+    <Navbar variant='dark' expand='lg' sticky='top' className={styles.wrapper}>
       <Container fluid>
         <Navbar.Brand>
           <Link to='/'>Ekstraklasa Sportradar App</Link>
@@ -31,11 +25,15 @@ export const Navigation = () => {
               title='Ready? Go!'
               menuVariant='dark'
             >
-              <Link to='/'>Results table</Link>
+              <Link to='/' className={styles.link}>
+                Results table
+              </Link>
 
               <NavDropdown.Item></NavDropdown.Item>
               <NavDropdown.Divider />
-              <Link to='/matchtimeline'>Match timeline</Link>
+              <Link to='/matchtimeline' className={styles.link}>
+                Match timeline
+              </Link>
               <NavDropdown.Item></NavDropdown.Item>
             </NavDropdown>
           </Nav>

@@ -1,2 +1,8 @@
+@import "./../../variables/_variables.scss";
 .wrapper {
+  background-color: $navy1;
+  border-radius: $radius;
+  .link {
+    margin-left: $margin2;
+  }
 }

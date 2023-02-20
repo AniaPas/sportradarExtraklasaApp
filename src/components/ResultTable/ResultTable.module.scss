@@ -1,13 +1,19 @@
 @import "./../../variables/_variables.scss";
+
 .tableContainer {
   overflow-x: auto;
+  border-radius: $radius;
+
   .resultTable {
-    background-color: $navy3;
-    //width: 90vw;
-    color: $white;
+    background-color: $navy1;
+    color: $greyLight2;
 
     .tableRow {
       cursor: pointer;
+
+      &:hover {
+        background-color: $grey;
+      }
     }
   }
 }
