@@ -1,6 +1,12 @@
+//Style
+import styles from "./MatchTimeline.module.scss";
+//Hooks
 import { useEffect, useState, useContext } from "react";
+//GlobalState
 import { GlobalState } from "../../Store/GlobalStore";
+//Services
 import { fetchResponse } from "../../services/services";
+//Components
 import { TimelineTable } from "../../components/TimelineTable/TimelineTable";
 export const MatchTimeline = () => {
   const global = useContext(GlobalState);
@@ -27,9 +33,10 @@ export const MatchTimeline = () => {
   useEffect(() => {
     getEventData();
     getTimelineData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  // console.log(eventData);
-  //const homeTeam = eventData.competitors[0].name;
+  console.log(eventData);
+  // const homeTeam = eventData.competitors[0].name;
 
   // const awayTeam = eventData.competitors[1].name;
   // console.log(awayTeam);
@@ -45,8 +52,8 @@ export const MatchTimeline = () => {
   );
   //console.log(team);
   return (
-    <div>
-      MatchTimelie
+    <div className={styles.titleDiv}>
+      <h2>The match step by step</h2>
       <TimelineTable
         team={team}
         matchTime={matchTime}
