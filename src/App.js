@@ -1,8 +1,12 @@
-import { GlobalStore } from "./Store/GlobalStore";
-import { Home } from "./view/Home/Home";
-import { Navigation } from "./components/Navigation/Navigation";
-import { Routes, Route } from "react-router-dom";
+//Style
 import styles from "./App.module.scss";
+//GlobalStore
+import { GlobalStore } from "./Store/GlobalStore";
+//Router
+import { Routes, Route } from "react-router-dom";
+//Components
+import { Navigation } from "./components/Navigation/Navigation";
+import { Home } from "./view/Home/Home";
 import { MatchTimeline } from "./view/MatchTimeline/MatchTimeline";
 
 function App() {
@@ -21,7 +25,6 @@ function App() {
       <div className={styles.App}>
         <header className={styles.AppHeader}>
           <h1 className={styles.title}>EKSTRAKLASA MATCH RESULTS</h1>
-
           <Navigation navElements={navElements} />
           <Routes>
             <Route path='/' element={<Home />} />
