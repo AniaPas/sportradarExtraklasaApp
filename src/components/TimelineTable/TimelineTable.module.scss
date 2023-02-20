@@ -1,7 +1,10 @@
 @import "./../../variables/_variables.scss";
-.divElement {
-  background-color: $navy1;
-  padding: $padding1;
-  margin: $margin3;
-  border-radius: $radiusSm;
+.wrapper {
+  margin: $margin4;
+  .divElement {
+    background-color: $navy1;
+    padding: $padding1;
+    margin: $margin3;
+    border-radius: $radiusSm;
+  }
 }

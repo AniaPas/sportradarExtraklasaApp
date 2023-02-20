@@ -32,7 +32,9 @@ export const TimelineTable = ({ team, matchTime, actionType }) => {
     <div className={styles.wrapper}>
       <Container>
         <Row>
-          <Col>2 of 2</Col>
+          <Col>Time</Col>
+          <Col>Team</Col>
+          <Col>Action</Col>
         </Row>
         <Row className={styles.rowElement}>
           <Col className={styles.colElement}>{createMatchTimeCell}</Col>
