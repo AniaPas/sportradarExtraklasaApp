@@ -3,14 +3,11 @@
 .tableContainer {
   overflow-x: auto;
   border-radius: $radius;
-
   .resultTable {
     background-color: $navy1;
     color: $greyLight2;
-
     .tableRow {
       cursor: pointer;
-
       &:hover {
         background-color: $grey;
       }

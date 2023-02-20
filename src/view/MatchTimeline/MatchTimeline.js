@@ -1,8 +1,6 @@
-import React from "react";
-import axios from "axios";
 import { useEffect, useState, useContext } from "react";
 import { GlobalState } from "../../Store/GlobalStore";
-import { fetchResponse, fetchTimeline } from "../../services/services";
+import { fetchResponse } from "../../services/services";
 import { TimelineTable } from "../../components/TimelineTable/TimelineTable";
 export const MatchTimeline = () => {
   const global = useContext(GlobalState);
@@ -31,9 +29,12 @@ export const MatchTimeline = () => {
     getTimelineData();
   }, []);
   // console.log(eventData);
-  console.log(timelineData);
+  //const homeTeam = eventData.competitors[0].name;
 
+  // const awayTeam = eventData.competitors[1].name;
+  // console.log(awayTeam);
   const actionType = timelineData.map((item) => item.type);
+
   // console.log(actionType);
   const matchTime = timelineData.map((item) =>
     item.match_clock ? item.match_clock : "-"
@@ -42,7 +43,7 @@ export const MatchTimeline = () => {
   const team = timelineData.map((item) =>
     item.competitor ? item.competitor : "-"
   );
-  console.log(team);
+  //console.log(team);
   return (
     <div>
       MatchTimelie
