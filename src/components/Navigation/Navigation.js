@@ -1,6 +1,3 @@
-//Context
-import { GlobalState } from "../../Store/GlobalStore";
-import { useContext } from "react";
 //Router
 import { Link } from "react-router-dom";
 //Style
@@ -10,7 +7,6 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import styles from "./Navigation.module.scss";
 export const Navigation = () => {
-  const global = useContext(GlobalState);
   return (
     <Navbar variant='dark' expand='lg' sticky='top' className={styles.wrapper}>
       <Container fluid>
