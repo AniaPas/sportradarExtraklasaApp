@@ -4,45 +4,29 @@ import axios from "axios";
 import { useState } from "react";
 import { ResultTable } from "../../components/ResultTable/ResultTable";
 import { DropdownMenu } from "../../components/DropdownMenu/DropdownMenu";
+import { fetchResponse } from "../../services/services";
 
 export const Home = () => {
   const global = useContext(GlobalState);
-  // const getResults = async () => {
-  //   try {
-  //     const data = await  fetchData();
-  //     await global.globalGetData(data.data);
-  //   } catch {
-
-  //   }
-  // };
 
   const [data, setData] = useState([]);
-  // const [api, setApi] = useState("http://localhost:3007/schedules/");
-  //const [names, setNames] = useState({})
-  //const
 
+  const getResults = async () => {
+    try {
+      const response = await fetchResponse(global.globalApi);
+      console.log(response.data);
+      setData(response.data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
   useEffect(() => {
     //const API = "http://localhost:3007/schedules/";
 
-    axios
-      .get(global.globalApi)
-      .then((response) => {
-        const responseItems = response.data;
-        console.log(responseItems);
-        setData(responseItems);
-      })
-      .catch((e) => {
-        console.error(e);
-      });
+    getResults();
   }, [global.globalApi]);
   console.log(data);
-  // const clickHandler = (someApi) => {
-  //   setApi(someApi);
-  // };
-  //const getNames = data.map((item) => item.sport_event.competitors);
-  //console.log(getNames);
-  //const names = getNames.map((item) => [item[0].name, item[1].name]).flat(1);
-  //console.log(names);
+
   const homeNames = data.map((item) => item.sport_event.competitors[0].name);
   const awayNames = data.map((item) => item.sport_event.competitors[1].name);
   // console.log(homeNames);
@@ -67,12 +51,10 @@ export const Home = () => {
       ? `${item.sport_event_status.period_scores[0].home_score} - ${item.sport_event_status.period_scores[0].away_score}`
       : "no result"
   );
-  // console.log(halfTime);
+
   const date = data.map((item) => item.sport_event.start_time.slice(0, 10));
   const stadium = data.map((item) => item.sport_event.venue.name);
 
-  //console.log(results);
-  //console.log(homeResults);
   return (
     <div>
       {/* <Navigation clickHandler={clickHandler} /> */}

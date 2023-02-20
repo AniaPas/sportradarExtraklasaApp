@@ -31,15 +31,12 @@ export const Navigation = () => {
               title='Ready? Go!'
               menuVariant='dark'
             >
-              <NavDropdown.Item>
-                <Link to='/'>Results table</Link>
-              </NavDropdown.Item>
-              <NavDropdown.Item>
-                <Link to='/matchtimeline'>Match timeline</Link>
-              </NavDropdown.Item>
+              <Link to='/'>Results table</Link>
+
               <NavDropdown.Item></NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item>Separated link</NavDropdown.Item>
+              <Link to='/matchtimeline'>Match timeline</Link>
+              <NavDropdown.Item></NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

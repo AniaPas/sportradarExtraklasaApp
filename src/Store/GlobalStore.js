@@ -1,18 +1,21 @@
 import { useState, createContext } from "react";
 export const GlobalState = createContext({
   // globalData: [],
-  // globalTimeline: [],
+  globalTimelineApi: "http://localhost:3007/timeline",
   globalApi: "http://localhost:3007/schedules/",
-  globalTimelineApi: "http://localhost:3007/sport_event_22926007",
-  // globalGetTimelime: () => {},
+  globalEventApi: "http://localhost:3007/sport_event_22926007",
+  globalTimelineClickHandler: () => {},
   globalClickHandler: () => {},
 });
 
 export const GlobalStore = (props) => {
   // const [data, setData] = useState([]);
   const [api, setApi] = useState("http://localhost:3007/schedules/");
-  const [timelineApi, setTimelineApi] = useState(
+  const [eventApi, setEventApi] = useState(
     "http://localhost:3007/sport_event_22926007"
+  );
+  const [timelineApi, setTimelineApi] = useState(
+    "http://localhost:3007/timeline"
   );
   // const fetchData = () => {
   //   setData(data);
@@ -20,10 +23,14 @@ export const GlobalStore = (props) => {
   const clickHandler = (api) => {
     setApi(api);
   };
+  const timelineClickHandler = (api) => {
+    setTimelineApi(api);
+  };
   const providerValue = {
-    // globalData: data,
+    globalTimelineApi: timelineApi,
+    globalEventApi: eventApi,
     globalApi: api,
-    // globalGetData: fetchData,
+    globalTimelineClickHandler: timelineClickHandler,
     globalClickHandler: clickHandler,
   };
   return (

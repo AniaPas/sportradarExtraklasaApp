@@ -1,6 +1,11 @@
 import Table from "react-bootstrap/Table";
+
 import uniqid from "uniqid";
 import styles from "./ResultTable.module.scss";
+import { GlobalState } from "../../Store/GlobalStore";
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+
 export const ResultTable = ({
   homeNames,
   awayNames,
@@ -10,6 +15,11 @@ export const ResultTable = ({
   date,
   stadium,
 }) => {
+  const navigate = useNavigate();
+  const clickHandler = () => {
+    navigate("/matchtimeline");
+  };
+  const global = useContext(GlobalState);
   const Elements = [
     homeNames,
     awayNames,
@@ -39,7 +49,7 @@ export const ResultTable = ({
       }
     });
   const fillBody = column?.map((e, i) => (
-    <tr key={uniqid()}>
+    <tr key={uniqid()} onClick={clickHandler} className={styles.tableRow}>
       <td style={{ backgroundColor: cellColor(homeResults, awayResults)[i] }}>
         {e[0]}
       </td>
