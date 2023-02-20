@@ -65,21 +65,30 @@ export const ResultTable = ({
   ));
   //console.log(fillBody);
   return (
-    <Table striped bordered hover size='sm' className={styles.resultTable}>
-      <thead>
-        <tr>
-          {createThElement(
-            "Home team",
-            "Away team",
-            "Home results",
-            "Away results",
-            "Half-time",
-            "Date",
-            "Stadium"
-          )}
-        </tr>
-      </thead>
-      <tbody>{fillBody}</tbody>
-    </Table>
+    <div className={styles.tableContainer}>
+      <Table
+        responsive
+        bordered
+        hover
+        //variant='dark'
+        size='sm'
+        className={styles.resultTable}
+      >
+        <thead>
+          <tr>
+            {createThElement(
+              "Home team",
+              "Away team",
+              "Home results",
+              "Away results",
+              "Half-time",
+              "Date",
+              "Stadium"
+            )}
+          </tr>
+        </thead>
+        <tbody>{fillBody}</tbody>
+      </Table>
+    </div>
   );
 };

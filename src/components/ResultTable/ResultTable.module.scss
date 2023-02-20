@@ -1,6 +1,13 @@
-.resultTable {
-  width: 90vw;
-  .tableRow {
-    cursor: pointer;
+@import "./../../variables/_variables.scss";
+.tableContainer {
+  overflow-x: auto;
+  .resultTable {
+    background-color: $navy3;
+    //width: 90vw;
+    color: $white;
+
+    .tableRow {
+      cursor: pointer;
+    }
   }
 }

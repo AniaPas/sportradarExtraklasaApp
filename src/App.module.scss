@@ -1,8 +1,11 @@
+@import "./variables/_variables.scss";
 .App {
   text-align: center;
+  background-color: $navy3;
+  color: $white;
 
   .AppHeader {
-    //background-color: #282c34;
+    background-color: $navy3;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -13,9 +16,9 @@
     .title {
       margin: 5%;
     }
-  }
-
-  .App-link {
-    color: #61dafb;
+    a {
+      color: $greyLight;
+      text-decoration: none;
+    }
   }
 }

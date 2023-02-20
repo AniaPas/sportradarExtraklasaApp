@@ -1,5 +1,11 @@
+@import "./variables/_variables.scss";
+html {
+  box-sizing: border-box;
+  background-color: $navy3;
+  color: $white;
+}
 body {
-  margin: 5px;
+  //background-color: $greyLight;
 
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
