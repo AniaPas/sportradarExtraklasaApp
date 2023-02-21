@@ -25,6 +25,12 @@ export const MatchTimeline = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const actionType = timelineData.map((item) => item.type);
+
+  for (let i = 0; i < actionType.length; i++) {
+    actionType[i] = actionType[i].replace("_", " ");
+  }
+
+  console.log(actionType);
   const matchTime = timelineData.map((item) =>
     item.match_clock ? item.match_clock : "-"
   );
