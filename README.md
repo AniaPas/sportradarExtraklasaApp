@@ -5,8 +5,8 @@ Dear User,
 completing the test I had an incredible practice time and fun. Thank you for such an opportunity! There are several of solutions in the App I decided to implement:
 
 1. Due to the CORS policy, I decided for JSON Server as a dependency to serve as a mock server for the app and to perform proper HTTP requests.
-2. Due to this Reason, when it comes to TEST 4, as I was unable to dynamically obtain the data, I decided to fetch only one example op a match TIMELINE, therfore each RESULT TABLE line is a link to THE SAME TIMELINE to show the changing Url.
-3. There are many areas where the app could be improved in the future.
+2. For this reason, when it comes to TEST 4, as I was unable to dynamically obtain the data, I decided to fetch only one example of a match TIMELINE, therfore each RESULT TABLE line is a link to THE SAME TIMELINE to show the changing Url.
+3. I am aware there are many areas where the app could be improved in the future, however this is what I have developed thus far.
    Have fun!
 
 # Getting Started with Create React App
