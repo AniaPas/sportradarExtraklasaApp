@@ -13,8 +13,14 @@
     justify-content: center;
     font-size: calc(10px + 2vmin);
     margin: 5vw;
-    .title {
-      margin: 5%;
+    .logoWrapper {
+      display: flex;
+      .logo {
+        width: 20vw;
+      }
+      .title {
+        margin: 5%;
+      }
     }
     a {
       color: $greyLight;
