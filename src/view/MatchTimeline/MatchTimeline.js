@@ -24,11 +24,15 @@ export const MatchTimeline = () => {
     getTimelineData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  const actionType = timelineData.map((item) => item.type);
+  const replaceString = (array, a, b) => {
+    for (let i = 0; i < array.length; i++) {
+      array[i] = array[i].replace(a, b);
+    }
+  };
+  let actionType = timelineData.map((item) => item.type);
 
-  for (let i = 0; i < actionType.length; i++) {
-    actionType[i] = actionType[i].replace("_", " ");
-  }
+  replaceString(actionType, "_", " ");
+  replaceString(actionType, "_target", " target");
 
   console.log(actionType);
   const matchTime = timelineData.map((item) =>
