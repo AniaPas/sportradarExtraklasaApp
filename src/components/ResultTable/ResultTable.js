@@ -1,10 +1,10 @@
+//Slyle
 import Table from "react-bootstrap/Table";
-
-import uniqid from "uniqid";
 import styles from "./ResultTable.module.scss";
-import { GlobalState } from "../../Store/GlobalStore";
-import React, { useContext } from "react";
+//Router
 import { useNavigate } from "react-router-dom";
+//ID
+import uniqid from "uniqid";
 
 export const ResultTable = ({
   homeNames,
@@ -19,7 +19,6 @@ export const ResultTable = ({
   const clickHandler = () => {
     navigate("/matchtimeline");
   };
-  const global = useContext(GlobalState);
   const Elements = [
     homeNames,
     awayNames,
